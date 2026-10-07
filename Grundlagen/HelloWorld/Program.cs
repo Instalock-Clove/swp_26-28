@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 
 namespace KonsolenApp
 {
@@ -7,47 +6,60 @@ namespace KonsolenApp
     {
         static void Main(string[] args)
         {
-            Console.Write("Bitte einen String eingeben: ");
-            string eingabe = Console.ReadLine();
+            Console.Write("Please enter something: ");
+            string input = Console.ReadLine();
 
-            if (eingabe != null)
+            if (input != null)
             {
-                // Typ der Eingabe bestimmen
-                if (int.TryParse(eingabe, out int intWert))
-                {
-                    Console.WriteLine($"Integer erkannt: {intWert}");
-                }
-                else if (IstBool(eingabe, out bool boolWert))
-                {
-                    Console.WriteLine($"Bool erkannt: {boolWert}");
-                }
-                else if (double.TryParse(eingabe, NumberStyles.Float, CultureInfo.CurrentCulture, out double doubleWert))
-                {
-                    Console.WriteLine($"Double erkannt: {doubleWert}");
-                }
-                else
-                {
-                    Console.WriteLine("Es handelt sich um einen normalen String.");
-                }
+                string typeText = GetTypeText(input);
+                Console.WriteLine(typeText);
 
-                // Bisherige Funktion: String umdrehen
-                char[] charArray = eingabe.ToCharArray();
+                char[] charArray = input.ToCharArray();
                 Array.Reverse(charArray);
-                string umgedreht = new string(charArray);
-                Console.WriteLine($"Ausgabe: {umgedreht}");
+                string reversed = new string(charArray);
+                Console.WriteLine("Reversed: " + reversed);
+
                 Console.ReadKey();
             }
         }
 
-        // Erkennt true/false sowie wahr/falsch
-        static bool IstBool(string text, out bool wert)
+        static string GetTypeText(string text)
         {
-            string t = text.Trim().ToLower();
+            if (int.TryParse(text, out int number))
+            {
+                return "This is an integer: " + number;
+            }
 
-            if (t == "wahr") { wert = true; return true; }
-            if (t == "falsch") { wert = false; return true; }
+            if (TryParseBool(text, out bool yesNo))
+            {
+                return "This is a bool: " + yesNo;
+            }
 
-            return bool.TryParse(t, out wert);
+            if (double.TryParse(text, out double decimalNumber))
+            {
+                return "This is a double: " + decimalNumber;
+            }
+
+            return "This is a normal string.";
+        }
+
+        static bool TryParseBool(string text, out bool value)
+        {
+            string cleaned = text.Trim().ToLower();
+
+            if (cleaned == "wahr")
+            {
+                value = true;
+                return true;
+            }
+
+            if (cleaned == "falsch")
+            {
+                value = false;
+                return true;
+            }
+
+            return bool.TryParse(cleaned, out value);
         }
     }
 }
