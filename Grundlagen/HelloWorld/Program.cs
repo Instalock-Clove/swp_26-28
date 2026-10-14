@@ -55,7 +55,7 @@ namespace KonsolenApp
                 case 1:
                     return number * number;
                 case 2:
-                    return (int)Math.Sqrt(number);
+                    return Math.Sqrt(number);
                 case 3:
                     return Factorial(number);
                 default:
