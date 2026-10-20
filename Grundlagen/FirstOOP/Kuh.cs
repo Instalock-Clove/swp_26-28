@@ -1,27 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace FirstOOP
 {
     public class Kuh
     {
-        string _name { get; set; } // Private field for the name of the cow
-        string _colour { get; set; } // Private field for the colour of the cow
+        string _name { get; set; }
+        string _colour { get; set; }
 
         public string Name
         {
-            get { return _name; } // Public property to get the name of the cow
-            set { _name = value; } // Public property to set the name of the cow
+            get { return _name; }
+            set { _name = value; }
         }
         public string Colour
         {
-            get { return _colour; } // Public property to get the colour of the cow
-            set { _colour = value; } // Public property to set the colour of the cow
+            get { return _colour; }
+            set { _colour = value; }
         }
-        // Constructor to initialize the cow's name and colour
+
         public Kuh(string name, string colour)
         {
+            if (string.IsNullOrEmpty(name))
+                throw new InvalidDataException("Der Name darf nicht leer sein.");
+
             _name = name;
             _colour = colour;
         }
