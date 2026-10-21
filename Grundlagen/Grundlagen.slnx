@@ -1,5 +1,5 @@
 <Solution>
-  <Project Path="FirstOOP.Tests/FirstOOP.Tests.csproj" />
+  <Project Path="FirstOOP.Test/FirstOOP.Test.csproj" Id="2d0cd6d3-a05d-43e1-be82-bda2de7c04d1" />
   <Project Path="FirstOOP/FirstOOP.csproj" Id="98a3b490-0f6a-4ca1-a908-876cd7fe29a9" />
   <Project Path="HelloWorld/HelloWorld.csproj" />
 </Solution>
