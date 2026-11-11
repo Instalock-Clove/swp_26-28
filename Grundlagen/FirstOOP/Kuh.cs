@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FirstOOP
+﻿namespace FirstOOP
 {
-    public class Kuh
+    public class Kuh : Tier
     {
-        string _name { get; set; }
+        string _name { get; set; } 
         string _colour { get; set; }
 
         public string Name
@@ -20,7 +16,7 @@ namespace FirstOOP
             set { _colour = value; }
         }
 
-        public Kuh(string name, string colour)
+        public Kuh(string name, string colour, string lebensraum) : base(lebensraum)
         {
             if (string.IsNullOrEmpty(name))
                 throw new InvalidDataException("Der Name darf nicht leer sein.");
