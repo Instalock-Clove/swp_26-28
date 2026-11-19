@@ -1,8 +1,26 @@
 ﻿using FirstOOP;
 
-Console.WriteLine("Hello, World!");
-var myKuh = new Kuh("Berta", "Braun"); // Create a new instance of the Kuh class with name "Berta" and colour "Braun"
-var myKuh2 = new Kuh("Lotte", "Weiß"); // Create a new instance of the Kuh class with name "Lotte" and colour "Weiß"
+class Program
+{
+    static void Main()
+    {
+        Animal myAnimal = new Animal("Animal", "Brown", new DateTime(2018, 12, 1));
+        myAnimal.MakeSound();
 
-Console.WriteLine(myKuh.Colour);
-Console.WriteLine(myKuh2.Colour);
+        Cat myCat = new Cat("Cookie", "Black", new DateTime(2014, 7, 14));
+        myCat.MakeSound();
+        myCat.GetAge();
+
+        Cow myCow = new Cow("Cow0", "White", new DateTime(2015, 2, 1));
+        myCow.MakeSound();
+
+        Cow myCow1 = new Cow("Cow1", "Black", new DateTime(2008, 12, 1));
+        Cow myCow2 = myCow; 
+
+        Console.WriteLine(myCow.Name);
+        myCow.Colour = "Brown";
+        Console.WriteLine(myCow2.Colour); 
+
+        Console.ReadKey();
+    }
+}
