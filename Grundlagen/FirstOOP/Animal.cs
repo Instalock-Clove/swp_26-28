@@ -6,7 +6,11 @@ public class Animal
     private string _colour = "";
     private DateTime _birthdate;
 
-    public string Name => _name;
+    public string Name
+    {
+        get { return _name; }
+        protected set { _name = value; }
+    }
 
     public string Colour
     {
@@ -19,6 +23,14 @@ public class Animal
     public virtual void MakeSound()
     {
         Console.WriteLine("Animal Sound");
+    }
+
+    public virtual void MakeSound(int duration)
+    {  
+        for (int i = 0; i < duration; i++)
+        {
+            Console.WriteLine("Animal Sound");
+        }   
     }
 
     public void GetAge()

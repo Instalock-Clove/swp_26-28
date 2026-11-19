@@ -9,4 +9,11 @@ public class Cat : Animal
     {
         Console.WriteLine("Miau");
     }
+    public override void MakeSound(int duration)
+    {
+        for (int i = 0; i < duration; i++)
+        {
+            Console.WriteLine("Miau");
+        }
+    }
 }
